@@ -1,0 +1,163 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Government-style professional theme */
+    --background: 0 0% 100%;
+    --foreground: 215 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
+
+    /* Official navy blue - primary government color */
+    --primary: 215 75% 35%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Muted gray for secondary elements */
+    --secondary: 210 10% 50%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 15% 96%;
+    --muted-foreground: 215 15% 45%;
+
+    /* Government gold accent */
+    --accent: 43 95% 55%;
+    --accent-foreground: 215 25% 15%;
+
+    --destructive: 0 75% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 20% 85%;
+    --input: 215 20% 93%;
+    --ring: 215 75% 35%;
+
+    --radius: 0.375rem;
+
+    --chart-1: 215 75% 35%;
+    --chart-2: 210 10% 50%;
+    --chart-3: 43 95% 55%;
+    --chart-4: 195 75% 45%;
+    --chart-5: 25 85% 55%;
+
+    /* Professional gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(215 75% 35% / 0.05), hsl(43 95% 55% / 0.05));
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(210 15% 98%));
+    --gradient-official: linear-gradient(to right, hsl(215 75% 35%), hsl(215 75% 45%));
+    
+    /* Official shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(215 25% 15% / 0.05);
+    --shadow-md: 0 2px 4px -1px hsl(215 25% 15% / 0.08);
+    --shadow-lg: 0 4px 12px -2px hsl(215 25% 15% / 0.12);
+    --shadow-card: 0 1px 3px 0 hsl(215 25% 15% / 0.08), 0 1px 2px -1px hsl(215 25% 15% / 0.05);
+    --shadow-official: 0 2px 8px hsl(215 75% 35% / 0.15);
+  }
+
+  .dark {
+    --background: 215 30% 10%;
+    --foreground: 0 0% 98%;
+
+    --card: 215 25% 15%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 215 25% 15%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 215 75% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 10% 40%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 215 25% 20%;
+    --muted-foreground: 215 15% 65%;
+
+    --accent: 43 95% 60%;
+    --accent-foreground: 215 25% 15%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 215 25% 25%;
+    --input: 215 25% 20%;
+    --ring: 215 75% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.6s ease-out;
+  }
+
+  .hover-lift {
+    @apply transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md;
+  }
+
+  .card-gradient {
+    background: var(--gradient-card);
+  }
+
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  .official-gradient {
+    background: var(--gradient-official);
+  }
+
+  .official-badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 bg-primary/10 text-primary text-xs font-semibold rounded border border-primary/20;
+  }
+
+  .section-heading {
+    @apply text-3xl font-bold tracking-tight text-foreground border-l-4 border-primary pl-4;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

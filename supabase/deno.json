@@ -1,0 +1,11 @@
+{
+  "tasks": {
+    "start": "supabase start",
+    "stop": "supabase stop",
+    "reset": "supabase db reset"
+  },
+  "imports": {
+    "std/": "https://deno.land/std@0.208.0/",
+    "@supabase/supabase-js": "https://esm.sh/@supabase/supabase-js@2"
+  }
+}
